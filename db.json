@@ -1,0 +1,19 @@
+{
+  "gradovi": [
+    {
+      "id": 1,
+      "name": "Nis",
+      "population": "260.237"
+    },
+    {
+      "id": 2,
+      "name": "Beograd",
+      "population": "1.166.763"
+    },
+    {
+      "id": 3,
+      "name": "Novi Sad",
+      "population": "307.352"
+    }
+  ]
+}
