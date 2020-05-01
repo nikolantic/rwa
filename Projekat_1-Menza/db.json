@@ -1,0 +1,12 @@
+{
+  "korisnici": [
+    {
+      "ime": "Nikola",
+      "prezime": "Antic",
+      "indeks": "16476",
+      "bonovi": 90,
+      "id": 1
+    }
+  ],
+  "meni": []
+}
