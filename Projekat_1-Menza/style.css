@@ -1,0 +1,22 @@
+#model{
+    display: flex;
+    flex-direction: column;
+}
+#menzaForma{
+    text-align: center;
+    
+}
+#menza-ul{
+    
+    padding: 0;
+    
+    list-style: inside;
+    
+    
+}
+#meni-ul{
+    
+    padding: 0px;
+    list-style: inside;
+    
+}

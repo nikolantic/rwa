@@ -1,10 +1,53 @@
 <!DOCTYPE html>
 <html>
     <head>
-       
+        <meta charset="UTF-8" />
+        <link rel="stylesheet" href="./style.css">
     </head>
     <body>
-        <script src='dist/bundle.js'></script>
         
+        <div class="container">
+            <div class="loginForm">
+                <div class="row">
+                    <span>Unesite ime:</span>
+                    <input id="ime" type="text">
+                </div>
+                <div class="row">
+                    <span>Unesite prezime:</span>
+                    <input id="prezime" type="text">
+                </div>
+                <div class="row">
+                    <span>Unesite indeks:</span>
+                    <input id="indeks" type="text">
+                </div>
+                <button id="btn">Sacuvaj</button>
+            </div>
+            <div class="uplacivanjeForma">
+                <div class="row">
+                    <input id="indeks-uplati" type="text">
+                    
+                    <div id="model">
+                    </div>
+                </div>
+               
+            </div> 
+            <div id="menzaForma">
+                <h1>Dostupne menze u gradu Nisu</h1>
+               <ul id="menza-ul"></ul>
+               <span>Unesite ID menze: <input id="menza-id" type="number"></span>
+               <ul id="meni-ul"></ul>
+               <div>
+
+                <span>Unesite indeks: <input id="indeks-stanje"></span>
+                <div id="stanje">
+                </div>
+               <span>Unesite jelo: <input id="inputJelo-id"></span>
+               <button id="kupiBtn">Kupi</button>
+                </div>
+            </div>
+        </div>
+
+
+        <script src='dist/bundle.js'></script>
     </body>
 </html>

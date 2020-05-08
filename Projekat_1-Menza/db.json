@@ -4,11 +4,50 @@
       "ime": "Nikola",
       "prezime": "Antic",
       "indeks": "16476",
-      "bonovi": 90,
-      "uplaceno": 47,
+      "bonovi": 80,
+      "uplaceno": 0,
       "id": 1
     }
-   
   ],
-  "meni": []
+  "menza": [
+    {
+      "id": 1,
+      "ime": "Elektronskog"
+    },
+    {
+      "id": 2,
+      "ime": "Pravnog"
+    },
+    {
+      "id": 3,
+      "ime": "Medicinskog"
+    }
+  ],
+  "meni": [
+    {
+      "id": 1,
+      "jelo": "Pasulj",
+      "idMenze": 1
+    },
+    {
+      "id": 2,
+      "jelo": "Gulas",
+      "idMenze": 1
+    },
+    {
+      "id": 3,
+      "jelo": "Becka snicla",
+      "idMenze": 1
+    },
+    {
+      "id": 4,
+      "jelo": "Spanac",
+      "idMenze": 2
+    },
+    {
+      "id": 5,
+      "jelo": "Musaka",
+      "idMenze": 2
+    }
+  ]
 }
