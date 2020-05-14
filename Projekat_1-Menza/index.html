@@ -7,43 +7,62 @@
     <body>
         
         <div class="container">
+            <div class="topSide">
+                <label class="naslov">Forma za otvaranje kartice</label>
             <div class="loginForm">
+                
                 <div class="row">
-                    <span>Unesite ime:</span>
+                    <label class="labelaLogin">Unesite ime: </label>
                     <input id="ime" type="text">
                 </div>
                 <div class="row">
-                    <span>Unesite prezime:</span>
+                    <label class="labelaLogin">Unesite prezime: </label>
                     <input id="prezime" type="text">
                 </div>
                 <div class="row">
-                    <span>Unesite indeks:</span>
+                    <label class="labelaLogin">Unesite indeks: </label>
                     <input id="indeks" type="text">
                 </div>
-                <button id="btn">Sacuvaj</button>
+                <div class="row">
+                    
+                    <button id="btn">Otvori karticu</button>
+                </div>
             </div>
+            <label class="naslov">Forma za uplacivanje</label>
             <div class="uplacivanjeForma">
                 <div class="row">
+                    <labela class="labelaUplati">Unesite indeks:</labela>
                     <input id="indeks-uplati" type="text">
-                    
-                    <div id="model">
-                    </div>
                 </div>
-               
+                <div id="model">
+                </div>
             </div> 
+        </div>
             <div id="menzaForma">
                 <h1>Dostupne menze u gradu Nisu</h1>
                <ul id="menza-ul"></ul>
                <span>Unesite ID menze: <input id="menza-id" type="number"></span>
                <ul id="meni-ul"></ul>
-               <div>
+               <label class="naslov">Forma za kupovinu</label>
+               <div class="menzaServis">
+                <div class="row">
+                    <label class="labelaKupi">Unesite indeks: </label>
+                    <input id="indeks-stanje">
+                </div>
 
-                <span>Unesite indeks: <input id="indeks-stanje"></span>
-                <div id="stanje">
+                <div id="stanje"></div>
+
+                <div class="row">
+                    <label class="labelaKupi">Unesite jelo: </label>
+                    <input id="inputJelo-id">
+                    
                 </div>
-               <span>Unesite jelo: <input id="inputJelo-id"></span>
-               <button id="kupiBtn">Kupi</button>
+
+                <div class="row">
+                    <button id="kupiBtn">Kupi</button>
                 </div>
+               </div> 
+               <div id="alertUser"></div> 
             </div>
         </div>
 

@@ -1,14 +1,14 @@
 import Menza from "../models/menza";
-import { fromEvent,of, merge} from "rxjs";
+import { fromEvent,of, merge, Observable,concat} from "rxjs";
 import { debounceTime, map, switchMap,take, takeUntil, reduce,filter} from "rxjs/operators";
-import {getUserInformation,takeInputValue} from "./korisnici-services";
+import {getUserInformation,takeInputValue,formatWords} from "./korisnici-services";
 import Korisnici from "../models/korisnici";
 
 
 
 
 export function drawListOfMenza(div:HTMLUListElement){
-   
+
     const tmp1=of(getMenzaObject(1));
     const tmp2=of(getMenzaObject(2));
     const tmp3=of(getMenzaObject(3));
@@ -78,34 +78,58 @@ export function addEvents(indeksInput:HTMLInputElement,paragraph:HTMLDivElement,
         
         const checkBon=obs.pipe(filter(val=>val<1));
         
-
         const obsBtnKupi=fromEvent(btn,'click').pipe(
             
-            map(()=>takeInputValue(indeksInput)),
-            switchMap((indeks)=>getUserBons(indeks)),
+            map(()=>getInput(jeloInput)),
+            switchMap((jelo)=>updateBaseAndJelo(jelo)),
             takeUntil(checkBon)
             
-        ).subscribe(x=>console.log(x));
-                
-               
+        ).subscribe(imeJela=>drawAndUpdate(imeJela,jeloInput,indeksInput));
+              
 }
+
+function getInput(input:HTMLInputElement){
+    return input.value;
+}
+
+function updateBaseAndJelo(jelo:string){
+
+   
+
+    const nameOfJelo=formatWords(jelo);
+    return getMenuFromBase(nameOfJelo);
+    
+}
+async function getMenuFromBase(name:string){
+  
+    const menu=await fetch('http://localhost:3000/meni' +"?jelo=" + name );
+    const menuArray= await menu.json();
+   
+    if (menuArray.length===0){
+      alert("Unesite dostupno jelo!");
+      return ""
+    }
+    
+      const menuJson=menuArray[0];
+      return menuJson["jelo"];
+}
+
 function getBon(indeks:number){
 
     const userObejct=getUserInformation(indeks);
     
     const userBons=userObejct.then((resolve)=>{return resolve.uplaceno})
-   
+    console.log(userBons);
     return userBons;
 }
         
-function getUserBons(indeks:number)
+function  updateBon(indeks:number)
 {
     const userObejct=getUserInformation(indeks);
-    console.log(userObejct);
+    
     const userBons=userObejct.then((resolve)=>{return resolve.uplaceno-1})
     updateUserBons(userObejct);
-    console.log(userBons);
-    return userBons;
+    
 }
 
 const updateUserBons = async (user: Promise<Korisnici>) => {
@@ -113,8 +137,7 @@ const updateUserBons = async (user: Promise<Korisnici>) => {
     const userObject=user.then(resolve=>{
         return resolve;
     });
-    
-
+   
     const settings = {
       method: 'PUT',
       body: JSON.stringify({
@@ -133,8 +156,27 @@ const updateUserBons = async (user: Promise<Korisnici>) => {
   
     const response = await fetch('http://localhost:3000/korisnici/'+(await userObject).id, settings)
     .then(res => res.json()).then(response=>updateBonLabel(response.uplaceno));
+
     
   };
   function updateBonLabel(uplaceno:number){
     (document.getElementById('bon-label')as HTMLInputElement).innerHTML="Imate: "+uplaceno+" uplacena bona.";
   }
+
+  function drawAndUpdate(imeJela:string,jeloInput:HTMLInputElement,indeksInput:HTMLInputElement){
+    
+    const indeks=getInputValue(indeksInput);
+    const paragraph=document.getElementById('alertUser') as HTMLDivElement;
+    jeloInput.value='';
+
+
+    if(imeJela!==""){
+        updateBon(indeks);
+        paragraph.innerHTML="Kupili ste: "+imeJela+" prijatno!";
+    }
+    
+      
+      
+  }
+
+

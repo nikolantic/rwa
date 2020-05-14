@@ -4,7 +4,7 @@
       "ime": "Nikola",
       "prezime": "Antic",
       "indeks": "16476",
-      "bonovi": 80,
+      "bonovi": 84,
       "uplaceno": 0,
       "id": 1
     }
@@ -36,7 +36,7 @@
     },
     {
       "id": 3,
-      "jelo": "Becka snicla",
+      "jelo": "Becka Snicla",
       "idMenze": 1
     },
     {
@@ -48,6 +48,21 @@
       "id": 5,
       "jelo": "Musaka",
       "idMenze": 2
+    },
+    {
+      "id": 6,
+      "jelo": "Musaka",
+      "idMenze": 3
+    },
+    {
+      "id": 7,
+      "jelo": "Pasulj",
+      "idMenze": 3
+    },
+    {
+      "id": 8,
+      "jelo": "Spanac",
+      "idMenze": 3
     }
   ]
 }

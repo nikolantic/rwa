@@ -1,22 +1,57 @@
+
+
+.loginForm,.uplacivanjeForma{
+    display:flex;
+    flex-direction: column;
+    width: 300px;
+    border: 1px solid black;
+    background-color: grey;
+    margin: 20px;
+}
+
+.row{ 
+    display: flex;
+    padding: 5px; 
+}
+#btn{
+    width: 100px;
+}
+#ime,#prezime,#indeks,.labelaLogin,#indeks-uplati,.labelaUplati,.labelaKupi,#indeks-stanje,#inputJelo-id,#kupiBtn{
+    width: 100px;
+    flex-grow: 1;   
+}
+#inputBon,#buttonUplati{
+    flex-grow: 1;
+}
+.rowUplati{
+    display: flex;
+    padding-top:10px;
+}
 #model{
     display: flex;
     flex-direction: column;
+    padding: 5px;    
 }
+
+
 #menzaForma{
-    text-align: center;
-    
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 #menza-ul{
-    
-    padding: 0;
-    
-    list-style: inside;
-    
-    
+    padding: 0px;
+    list-style: inside; 
 }
 #meni-ul{
-    
     padding: 0px;
-    list-style: inside;
-    
+    list-style: inside;  
+}
+.menzaServis{
+    display:flex;
+    flex-direction: column;
+    width: 300px;
+    border: 1px solid black;
+    background-color: grey;
 }

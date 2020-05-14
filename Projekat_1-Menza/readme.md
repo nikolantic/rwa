@@ -1,0 +1,2 @@
+Ideja zadatka je da se simulira rad studentskog restorana.Potrebno je otvoriti karticu u formi za otvaranje kartice,zatim u formi za uplacivanje uplatiti bonove.Nakon toga izabrati menzu i u formi za kupovinu uneti indeks i ime obroka.Ukoliko imate 0 bonova necete moci da kupite obrok.
+Prilikom koriscenja aplikacije potrebno je pokrenuti bazu.

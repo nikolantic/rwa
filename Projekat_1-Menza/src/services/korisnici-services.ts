@@ -8,7 +8,7 @@ export function addEventToButton(btn:HTMLButtonElement){
 
     fromEvent(btn,'click').pipe(
 
-       debounceTime(1500),
+        debounceTime(1500),
         map(()=>getInputElement()),
         switchMap((data)=>formatUserInfo(data)) 
 
@@ -52,14 +52,11 @@ function clearLoginInput(){
 
 function formatUserInfo(userInfo:Promise<any>){
 
-    console.log("ovo vraca: "+userInfo);
-   
     const modifiedWords=userInfo.then((resolve)=>resolve.map((user: string)=>formatWords(user))) 
-    console.log(modifiedWords);
     return modifiedWords;
 }
 
-function formatWords(user:string){
+export function formatWords(user:string){
 
     user = user.toLowerCase();
     let allWords = user.split(" ");
@@ -72,7 +69,7 @@ function formatWords(user:string){
 }
 
 const addUser = async (user:Array<any>) => {
-    console.log(user);
+    
     
     const korisnik=new Korisnici(user[0],user[1],user[2],90,0,0);
     
@@ -93,7 +90,6 @@ const addUser = async (user:Array<any>) => {
   export function addEventToInput(inputElement:HTMLInputElement,paragraph:HTMLDivElement){
     
     const obsInput=fromEvent(inputElement,'input').pipe(
-        
         debounceTime(1000),
         map(()=>takeInputValue(inputElement)),
         switchMap((index)=>getUserInformation(index)),
@@ -118,8 +114,7 @@ const addUser = async (user:Array<any>) => {
   }
   
   export function addEventToButtonUplati(btn:HTMLButtonElement){
-
-    
+   
     const obsButton = fromEvent(btn, 'click').pipe(
       take(1),
       map(()=>getIndeks()),
@@ -136,10 +131,9 @@ const addUser = async (user:Array<any>) => {
 
   }
 
-  export async function getUserInformation(index:number){
+  export function getUserInformation(index:number){
 
-    let userObject=  getUserObject(index);
-
+    let userObject = getUserObject(index);
     return userObject;
 
   }
@@ -162,7 +156,7 @@ const addUser = async (user:Array<any>) => {
     
     const uplacenoUpdate=parseInt(userObject.uplaceno)+parseInt(user[0]);
     const bonoviUpdate=userObject.bonovi-parseInt(user[0]);
-    //ovo pokusati sa filter,reduce itd.
+    
 
     const settings = {
       method: 'PUT',
@@ -192,12 +186,10 @@ const addUser = async (user:Array<any>) => {
     (document.getElementById('inputBon') as HTMLInputElement).value="";
     (document.getElementById('indeks-uplati') as HTMLInputElement).value=""
 
-    const modelDel=(document.getElementById('model')as HTMLInputElement);
+    const modelDel=(document.getElementById('model')as HTMLDivElement);
 
     setTimeout(()=> modelDel.innerHTML='',2500);
-
-   
-      
+  
   }
   
 

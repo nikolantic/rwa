@@ -7,9 +7,11 @@ export default class Menza{
     }
 
     drawMenza(host:HTMLUListElement) {
+        
         let listItem = document.createElement("li");
 		listItem.innerHTML = "Studentski restoran kod: "+this.ime+"</br>"+" ID restorana je: "+this.id;
-		host.appendChild(listItem);
+        host.appendChild(listItem);
+
     }
 
         

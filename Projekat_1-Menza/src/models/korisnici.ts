@@ -50,6 +50,7 @@ import {addEventToButtonUplati} from "../services/korisnici-services";
             host.appendChild(label5);
 
             const div=document.createElement("div");
+            div.className="rowUplati";
             host.appendChild(div);
 
             const inputBon=document.createElement('input');
@@ -71,11 +72,14 @@ import {addEventToButtonUplati} from "../services/korisnici-services";
     }
 
     drawUserBons(host:HTMLDivElement){
+        host.innerHTML='';
 
         const labelBon=document.createElement('label');
         labelBon.id="bon-label";
-        labelBon.innerHTML="Imate: "+this.uplaceno+" uplacena bona.";
         host.appendChild(labelBon);
+
+        if(this.ime=="") labelBon.innerHTML="Nije pronadjen student!";
+        else labelBon.innerHTML="Imate: "+this.uplaceno+" uplacena bona."; 
 
     }
 }
